@@ -40,14 +40,142 @@ error: pathspec 'm-' did not match any file(s) known to git
 error: pathspec 'first commit' did not match any file(s) known to git
 
 
-$ git commit -m "first commit"
-[master (root-commit) 2d0a14d] first commit
- 1 file changed, 0 insertions(+), 0 deletions(-)
- create mode 100644 Git bash commands & logs
+Forza Giuve
+
+est)
+$ git commit -m "good commit"
+[other_test 5d88f02] good commit
+ 2 files changed, 6 deletions(-)
+ create mode 100644 test
+ delete mode 100644 text_file.txt
+
+est)
+$ git checkout master
+error: Your local changes to the following files would be overwritten by checkout:
+        test
+Please commit your changes or stash them before you switch branches.
+Aborting
+
+est)
+$ git add test
+
+est)
+$ git commit -m "commit"
+[other_test 31e9bd5] commit
+ 1 file changed, 1 insertion(+)
+
+est)
+$ git checkout master
+Switched to branch 'master'
+M       Git bash commands & logs
 
 
-$ git branch test
+$ git branch test2
 
 
-$ git checkout test
-Switched to branch 'test'
+$ git checkout test2
+Switched to branch 'test2'
+M       Git bash commands & logs
+
+$ git add .
+
+$ git checkout master
+Switched to branch 'master'
+A       .idea/.gitignore
+A       .idea/BE-S7-L4.iml
+A       .idea/misc.xml
+A       .idea/modules.xml
+A       .idea/vcs.xml
+M       Git bash commands & logs
+
+
+$ git merge other_test
+Updating 1b69e43..31e9bd5
+Fast-forward
+ test          | 1 +
+ text_file.txt | 6 ------
+ 2 files changed, 1 insertion(+), 6 deletions(-)
+ create mode 100644 test
+ delete mode 100644 text_file.txt
+
+
+$ git merge test2
+Already up to date.
+
+
+$ git merge -d test2
+error: unknown switch `d'
+usage: git merge [<options>] [<commit>...]
+   or: git merge --abort
+   or: git merge --continue
+
+    -n                    do not show a diffstat at the end of the merge
+    --stat                show a diffstat at the end of the merge
+    --summary             (synonym to --stat)
+    --log[=<n>]           add (at most <n>) entries from shortlog to merge commit message
+    --squash              create a single commit instead of doing a merge
+    --commit              perform a commit if the merge succeeds (default)
+    -e, --edit            edit message before committing
+    --cleanup <mode>      how to strip spaces and #comments from message
+    --ff                  allow fast-forward (default)
+    --ff-only             abort if fast-forward is not possible
+    --rerere-autoupdate   update the index with reused conflict resolution if possible
+    --verify-signatures   verify that the named commit has a valid GPG signature
+    -s, --strategy <strategy>
+                          merge strategy to use
+    -X, --strategy-option <option=value>
+                          option for selected merge strategy
+    -m, --message <message>
+                          merge commit message (for a non-fast-forward merge)
+    -F, --file <path>     read message from file
+    --into-name <name>    use <name> instead of the real target
+    -v, --verbose         be more verbose
+    -q, --quiet           be more quiet
+    --abort               abort the current in-progress merge
+    --quit                --abort but leave index and working tree alone
+    --continue            continue the current in-progress merge
+    --allow-unrelated-histories
+                          allow merging unrelated histories
+    --progress            force progress reporting
+    -S, --gpg-sign[=<key-id>]
+                          GPG sign commit
+    --autostash           automatically stash/stash pop before and after
+    --overwrite-ignore    update ignored files (default)
+    --signoff             add a Signed-off-by trailer
+    --no-verify           bypass pre-merge-commit and commit-msg hooks
+
+
+
+$ git branch -d test2
+Deleted branch test2 (was 1b69e43).
+
+
+$ git branch -d other_test
+Deleted branch other_test (was 31e9bd5).
+
+
+$ git log
+commit 31e9bd572b6744100e69d590bb24e19b47505799 (HEAD -> master)
+Author: MoEzwawi <mezwawi96@gmail.com>
+Date:   Thu Jan 25 15:52:09 2024 +0100
+
+    commit
+
+commit 5d88f025e0a0f5e43b90238aac00a68a005ae682
+Author: MoEzwawi <mezwawi96@gmail.com>
+Date:   Thu Jan 25 15:51:23 2024 +0100
+
+    good commit
+
+commit 1b69e43185b2378d3be0f407eff3c4935d543858
+Author: MoEzwawi <mezwawi96@gmail.com>
+Date:   Thu Jan 25 15:44:17 2024 +0100
+
+    adds forza giuve
+
+commit df9d90e42bfb7ff69a24fc871d7b5f99a34826c1
+Author: MoEzwawi <mezwawi96@gmail.com>
+Date:   Thu Jan 25 15:42:58 2024 +0100
+
+    adds text
+:
