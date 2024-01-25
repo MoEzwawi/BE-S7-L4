@@ -1,0 +1,53 @@
+
+$ git init
+Initialized empty Git repository in C:/Users/.../.git/
+
+
+$ git add .
+
+
+$ git reset
+
+
+$ git add Git bash commands & logs
+[1] 1383
+bash: logs: command not found
+fatal: pathspec 'Git' did not match any files
+[1]+  Exit 128                git add Git bash commands
+
+
+$ git add "Git bash commands and logs"
+fatal: pathspec 'Git bash commands and logs' did not match any files
+
+
+$ git add "Git bash commands & logs"
+
+
+$ git branch test
+fatal: not a valid object name: 'master'
+
+
+$ git branch paperino
+fatal: not a valid object name: 'master'
+
+
+$ git branch 'paperino'
+fatal: not a valid object name: 'master'
+
+
+$ git commit m- "first commit"
+error: pathspec 'm-' did not match any file(s) known to git
+error: pathspec 'first commit' did not match any file(s) known to git
+
+
+$ git commit -m "first commit"
+[master (root-commit) 2d0a14d] first commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 Git bash commands & logs
+
+
+$ git branch test
+
+
+$ git checkout test
+Switched to branch 'test'
